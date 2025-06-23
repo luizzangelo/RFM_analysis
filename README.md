@@ -1,93 +1,115 @@
-# RFM Matrix Analysis for Fashion Online Store
+# RFM Analysis and Cashback Program for Online Fashion Store
+
+> **RFM Dashboard Preview**
+>
+> ![RFM Segmentation Dashboard](https://github.com/luizzangelo/RFM_analysis/blob/main/Screenshot%202025-06-23%20at%2017.24.21.png?raw=true)
 
 ## 📖 Overview
 
-* Connection to the CSV file via Power Query in Excel.
-
-2. **Cleaning**
-
-* Removal of duplicates and invalid records.
-
-* Conversion of dates to the standard format (`dd/mm/yyyy`).
-
-* Standardization of numerical fields (removal of symbols and adjustment of decimal separators).
-
-3. **Transformations**
-
-* Creation of auxiliary columns:
-
-* **Recency**: number of days from the last purchase to the date of analysis.
-
-* **Frequency**: total number of orders per customer.
-
-* **Monetary Value**: sum of the value of all purchases.
-
-* Calculation of **RFM scores** by grouping and generation of tracks (for example, top 20% most recent customers, etc.).
-
-4. **Cashback Column**
-
-* We define a cashback percentage on each sale (for example, 5% of the purchase amount).
-
-* We calculate the monetary value of the cashback and add a column that shows the credit available for the next purchase.
-
-> Power Query allowed you to keep the process reproducible: just re-reprove the steps when updating the data.
+Welcome to this project repository showcasing an **RFM Analysis** (Recency, Frequency, Monetary) combined with a **Cashback program** for an online fashion store. The primary goal is to understand customer behavior, strategically segment the customer base, and deliver personalized communication to boost engagement and retention.
 
 ---
 
-## 📊 Analysis and Insights
+## 🎯 Motivation & Objectives
 
-### RFM Segmentation
+1. **Why perform this analysis?**
 
-* **New Customers**: High recency, low frequency and moderate monetary value.
+   * Identify the most valuable and engaged customers.
+   * Spot promising customers who need an extra push to purchase again.
+   * Detect inactive or at-risk customers for reactivation campaigns.
+   * Map the customer journey and tailor communications accordingly.
 
-* **Loyal Customers**: High frequency and consistent monetary value.
+2. **What is the analysis used for?**
 
-* **Promising Customers**: Moderate recency and increasing frequency.
+   * Optimize marketing spend by targeting campaigns to the most relevant segments.
+   * Implement a Cashback program to encourage repeat purchases and loyalty.
+   * Provide actionable insights for customer lifecycle management.
 
-* **Lost Customers**: Very high Recency (many days without buying).
+---
 
-| Segment | Recommended action |
+## 📥 Data Extraction
 
-| --------------------- | ----------------------------------------------- |
+* **Source**: Loja Integrada platform.
+* **Extracted fields**:
 
-| New Customers | Welcome with discount or educational content. |
+  * Customer ID.
+  * Date of last order.
+  * Total number of orders and total sales value.
+  * Complete order history.
 
-| Promising Customers | Encourage with exclusive offers. |
+> Data was exported as CSV directly from the Loja Integrada admin panel, capturing all sales within the analysis period.
 
-| Loyal Customers | VIP program and cashback bonus. |
+---
 
-| Lost Customers | Reactivation campaigns (e-mail, SMS). |
+## 🔄 Data Preparation with Power Query
+
+1. **Import**
+
+   * Connected to the CSV file via Power Query in Excel.
+
+2. **Cleaning**
+
+   * Removed duplicate or invalid records.
+   * Standardized date formats (`dd/mm/yyyy`).
+   * Normalized numeric fields (stripped currency symbols and fixed decimal separators).
+
+3. **Transformations**
+
+   * Created auxiliary columns:
+
+     * **Recency**: Days since the last purchase.
+     * **Frequency**: Total number of orders per customer.
+     * **Monetary Value**: Sum of all purchase amounts.
+   * Calculated RFM scores by grouping and ranking customers into segments (e.g., top 20% most recent purchasers).
+
+4. **Cashback Column**
+
+   * Defined a cashback rate (e.g., 5% of each purchase).
+   * Computed the cashback amount and added a column showing the available credit for the next purchase.
+
+> Power Query ensures full reproducibility: simply refresh to update with new data.
+
+---
+
+## 📊 Analysis & Insights
+
+### RFM Segments
+
+* **New Customers**: High recency, low frequency, moderate spend.
+* **Loyal Customers**: High frequency and consistent spend.
+* **Potential Loyalists**: Moderate recency with increasing frequency.
+* **Churned Customers**: Very high recency (long time since last purchase).
+
+| Segment             | Recommended Action                                  |
+| ------------------- | --------------------------------------------------- |
+| New Customers       | Welcome offers or educational content.              |
+| Potential Loyalists | Exclusive promotions to encourage repeat purchases. |
+| Loyal Customers     | VIP program and additional cashback bonuses.        |
+| Churned Customers   | Reactivation campaigns (email, SMS).                |
 
 ### Cashback as an Incentive
 
-* The cashback amount appears as credit on the next purchase.
-
-* With each new purchase, the customer accumulates more balance and becomes more likely to return.
-
-* Example: customer who spent R\$100.00 receives R\$5.00 cashback to use on the next purchase.
+* Cashback is credited toward the customer’s next purchase.
+* Each new transaction increases the available credit, driving repeat business.
+* Example: A €100 purchase yields €5 cashback for the next order.
 
 ---
 
 ## 🚀 Next Steps
 
-1. **Automation**: Migrate the Power Query flow to a centralized ETL solution (for example, Azure Data Factory or Google Cloud Dataflow).
-
-2. **Integration with CRM**: Synchronize RFM segmentations and cashback credits in real time.
-
-3. **A/B tests**: Validate different percentages of cashback and communication formats.
-
-4. **Dashboard**: Develop interactive dashboards in Power BI or Looker to monitor key metrics.
+1. **Automation**: Migrate Power Query steps to a centralized ETL system (e.g., Azure Data Factory, Google Cloud Dataflow).
+2. **CRM Integration**: Sync RFM segments and cashback balances in real time.
+3. **A/B Testing**: Experiment with different cashback rates and communication formats.
+4. **Dashboarding**: Build interactive visuals in Power BI or Looker to monitor key metrics.
 
 ---
 
 ## 📝 Contributions
 
-This project is an example of how to use Excel and Power Query for customer intelligence analysis in e-commerce. Feel free to suggest improvements or create issues for discussion.
+This repository demonstrates how to leverage Excel and Power Query for customer intelligence in e-commerce. Feel free to open issues or submit pull requests to suggest improvements.
 
 ---
 
 <div align="center">
-
-<sub>Develoved by **Luiz Angelo** • Date of analysis: 06/23/2025</sub>
-
+  <sub>Created by **Luiz Angelo** • Analysis Date: 06/23/2025</sub>
 </div>
