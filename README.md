@@ -2,7 +2,7 @@
 
 > **RFM Dashboard Preview**
 >
-> ![RFM Segmentation Dashboard](https://github.com/luizzangelo/RFM_analysis/blob/main/Screenshot%202025-06-23%20at%2017.24.21.png?raw=true)
+> ![RFM Segmentation Dashboard](https://github.com/luizzangelo/RFM_analysis/blob/main/Screenshot%202025-06-23%20at%2020.23.14.png?raw=true)
 
 ## 📖 Overview
 
